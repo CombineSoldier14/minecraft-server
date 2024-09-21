@@ -1,0 +1,21 @@
+services:                                                                                                                                                                                     
+  minecraft-server:                                                                                                                                                                           
+    container_name: "minecraft-server"                                                                                                                                                        
+    entrypoint:                                                                                                                                                                               
+      - "/start"                                                                                                                                                                              
+    environment:                                                                                                                                                                              
+      - "TYPE=PAPER"                                                                                                                                                                          
+      - "MEMORY=1G"                                                                                                                                                                           
+      - "ICON=https://cdn.discordapp.com/icons/1180023544042770533/114c41a099c983ad4feb67f3dd1f9083.png?size=1024"                                                                            
+      - "EULA=TRUE"                                                                                                                                                                           
+      - "JAVA_VERSION=jdk-17.0.6+10"                                                                                                                                                          
+      - "VERSION=1.8.8"
+    image: "itzg/minecraft-server"
+    ports:
+      - "25565:25565/tcp"
+    volumes:
+      - "./server:/data/"
+    restart: "always"
+    tty: true
+    stdin_open: true
+    working_dir: "/data"
